@@ -1,0 +1,22 @@
+.content-header{
+    background-color: rgba(0, 0, 0, 0.746);
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: wheat;
+}
+
+.logo-img{
+    width: 80px;
+    height: 80px;
+}
+
+.logo{
+    overflow: hidden;
+    width: 100%;
+   
+}
