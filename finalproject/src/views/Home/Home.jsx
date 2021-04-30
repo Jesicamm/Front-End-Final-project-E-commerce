@@ -34,7 +34,7 @@ const Home = () => {
             <div className="third-page">
                 <p>¿Por qué comprar en La Huerta de Marian?</p>
             </div>
-            
+            <Footer/>
         </div>
     )
 };

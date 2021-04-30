@@ -11,7 +11,7 @@ const Header = () => {
         <div className="content-header">
            
             <div>
-              <Button name='Iniciar Sesión/Registro' path='mi-cuenta'/>
+              <Button name='Iniciar Sesión/Registro' path='sesion'/>
             </div>
             <div>
                 <Button name='Tienda' path='tienda'/>
