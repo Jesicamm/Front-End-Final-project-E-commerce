@@ -7,11 +7,13 @@ import Button from '../Button/Button';
 
 const Header = () => {
     
+
     return (
         <div className="content-header">
            
             <div>
-              <Button name='Iniciar Sesión/Registro' path='sesion'/>
+            
+             <Button name='Iniciar Sesión/Registro' path='sesion'/>
             </div>
             <div>
                 <Button name='Tienda' path='tienda'/>
