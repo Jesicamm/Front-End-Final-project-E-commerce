@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import checkError from '../../My-tools/My-tools';
+import { connect } from 'react-redux';
+import { LOGIN } from '../../redux/types/userTypes';
 
 
 const Sesion = (props) => {
@@ -34,11 +36,12 @@ const Sesion = (props) => {
             };
     
             let response = await axios.post('http://localhost:3002/users/login', credentialsData);
-            
-    
+           let guardado =  props.dispatch({ type: LOGIN, payload: response.data.jwt });
+            console.log(guardado)
+
             if (response.status === 200) {
                 setTimeout(() => {
-                    history.push('/home')
+                    history.push('/profile')
                 }, 1000);
             } else {
                 setLoginMessage('Sus credenciales son erroneos, comprueba su email o contraseña');
@@ -163,4 +166,6 @@ const Sesion = (props) => {
     )
 }
 
-export default Sesion;
+
+
+export default connect()(Sesion);
