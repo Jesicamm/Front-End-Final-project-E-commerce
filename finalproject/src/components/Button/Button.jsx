@@ -4,16 +4,16 @@ import './Button.css';
 import {useHistory} from 'react-router-dom';
 
 const Button = (props) => {
-
+    const {name, path} = props;
     let history = useHistory();
 
     const bringMeTo = () => {
-        history.push(`/${props.path}`)
+        history.push(`/${path}`)
     }
 
     return(
         <div onClick={()=> bringMeTo()} className="buttonRedirect">
-            {props.name}
+            {name}
         </div>
     )
 }

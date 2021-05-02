@@ -113,6 +113,11 @@ const Sesion = (props) => {
                 <p className='form-label-surname'>Apellidos</p>
                 <input name='surname' className="form-input-surname" onChange={handleState}></input>
 
+                <div className="phone">
+                     <p className='form-label-phone'>Teléfono de contacto</p>
+                    <input name="phone" className="form-input-phone" onChange={handleState}></input>
+                </div>
+
                 <p className='form-label-adress'>Direccíon</p>
                 <input name='address' className="form-input-adress" onChange={handleState}></input>
                 <div className="city">
@@ -137,7 +142,7 @@ const Sesion = (props) => {
                     <input type='password' name='password' className="form-input-password" onChange={handleState}></input>
                 </div>
                 
-                <div onClick={() => { sendDataRegister() }} className="form-button form-button-register">
+                <div onClick={ sendDataRegister } className="form-button form-button-register">
                     Registrarse
                 </div>
             </div>
@@ -150,7 +155,7 @@ const Sesion = (props) => {
                    {loginMessage}
                 </div>
                 <input type='password' name='password' className="form-input-password" onChange={handler}></input>
-            <div onClick={() => { sendDataLogin() }} className="form-button-login">
+            <div onClick= { sendDataLogin } className="form-button-login">
                     Login
                 </div>
             </div>
