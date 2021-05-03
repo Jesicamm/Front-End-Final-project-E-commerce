@@ -9,18 +9,20 @@ const Header = () => {
     
 
     return (
-        <div className="content-header">
-           
+        <div className='content-header'>
+            <div className='hort'>
+                <p>La Huerta de Marian</p>
+            </div>
+
+            <div className='spacer'></div>
+
             <div>
-            
-             <Button name='Iniciar Sesión/Registro' path='sesion'/>
+                <Button name='Iniciar Sesión/Registro' path='sesion'/>
             </div>
             <div>
                 <Button name='Tienda' path='tienda'/>
             </div>
-            <div>
-                <Button name='¿Quiénes somos?' path='contacto'/>
-            </div>
+            
             <div>
                 <Button name='Cestas Preparadas' path='cestas'/>
             </div>

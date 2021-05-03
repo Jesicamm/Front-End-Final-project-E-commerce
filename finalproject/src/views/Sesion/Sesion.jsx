@@ -32,22 +32,32 @@ const Sesion = (props) => {
     
             let credentialsData = {
                 email: credentials.email,
-                password: credentials.password
+                password: credentials.password,
+                
             };
     
             let response = await axios.post('http://localhost:3002/users/login', credentialsData);
            let guardado =  props.dispatch({ type: LOGIN, payload: response.data.jwt });
-            console.log(guardado)
+           console.log(guardado)
+           
+            
+             if (guardado.payload.user.role === 'basic'){
+                history.push('/profile')
+            }
 
-            if (response.status === 200) {
+            if (guardado.payload.user.role === 'admin'){
+                history.push('/admin')
+            } 
+
+            /*  if (response.status === 200) {
                 setTimeout(() => {
                     history.push('/profile')
                 }, 1000);
             } else {
                 setLoginMessage('Sus credenciales son erroneos, comprueba su email o contraseña');
                 window.confirm('Sus credenciales son erroneos, comprueba su email o contraseña');
-            }
-        }
+            }  */
+        } 
     
 
     let history = useHistory();
@@ -61,7 +71,8 @@ const Sesion = (props) => {
         address: "",
         country: "",
         city: "",
-        postal: ""
+        postal: "",
+        role: ""
     });
 
     
@@ -89,9 +100,11 @@ const Sesion = (props) => {
             email: user.email,
             password: user.password,
             address: user.address,
+            phone: user.phone,
             country: user.country,
             city: user.city,
-            postal: user.postal
+            postal: user.postal,
+            role: user.role
         };
 
         let endpointUser = 'http://localhost:3002/users';
