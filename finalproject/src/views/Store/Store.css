@@ -1,0 +1,46 @@
+.products-container{
+    display: flex;
+    flex-direction: row;
+    width: 1478px;
+    height: 200px;
+    justify-content: space-around;
+}
+
+.fruits-container{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 180px;
+    cursor: pointer;
+}
+.vegetables-container{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 180px;
+    cursor: pointer;
+}
+
+.nuts-container{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 180px;
+    cursor: pointer;
+}
+.vegetable-img{
+    overflow: hidden;
+}
+.fruit-img{
+    overflow: hidden;
+}
+.nut-img{
+    overflow: hidden; 
+}
+.vegetables-title{
+    align-self: center;
+}
+.title-cathegories{
+    margin-top: 100px;
+    margin-left: 90px;
+}

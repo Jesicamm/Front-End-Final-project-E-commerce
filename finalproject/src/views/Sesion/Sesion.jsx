@@ -6,6 +6,7 @@ import checkError from '../../My-tools/My-tools';
 import { connect } from 'react-redux';
 import { LOGIN } from '../../redux/types/userTypes';
 import './Sesion.css';
+import Header from "../../components/Header/Header";
 
 
 const Sesion = (props) => {
@@ -124,8 +125,10 @@ const [showRegister, setShowRegister] = useState(true)
     };
 
     return (
-
-        <div className='content-sesion'>
+        <div className="content">
+          <Header/>
+          <div className='content-sesion'>
+            
             <button onClick={changeForm}>{showRegister ? "Login" : "Registro"}</button>
             {showRegister ?
             
@@ -204,7 +207,7 @@ const [showRegister, setShowRegister] = useState(true)
             </div>
         }
         </div>
-
+        </div>
         
     )
 }

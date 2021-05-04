@@ -11,7 +11,7 @@ const Header = () => {
     return (
         <div className='content-header'>
             <div className='hort'>
-                <p>La Huerta de Marian</p>
+                <Button name='La Huerta de Marian' path=''/>
             </div>
 
             <div className='spacer'></div>
