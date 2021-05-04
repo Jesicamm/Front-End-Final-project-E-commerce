@@ -12,13 +12,17 @@ const Sesion = (props) => {
 
     const [credentials, setCredentials] = useState({ email: '', password: '' });
 
+const [showRegister, setShowRegister] = useState(true)
 
+    const changeForm= () => setShowRegister(!showRegister)
     const handler = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
     };
 
     const [registerMessage, setRegisterMessage] = useState('');
     const [loginMessage, setLoginMessage] = useState('');
+
+
 
     const sendDataLogin = async () => {
 
@@ -73,7 +77,7 @@ const Sesion = (props) => {
         country: "",
         city: "",
         postal: "",
-        role: ""
+        
     });
 
 
@@ -104,8 +108,7 @@ const Sesion = (props) => {
             phone: user.phone,
             country: user.country,
             city: user.city,
-            postal: user.postal,
-            role: user.role
+            postal: user.postal
         };
 
         let endpointUser = 'http://localhost:3002/users';
@@ -121,8 +124,13 @@ const Sesion = (props) => {
     };
 
     return (
+
         <div className='content-sesion'>
+            <button onClick={changeForm}>{showRegister ? "Login" : "Registro"}</button>
+            {showRegister ?
+            
             <div className="container-register">
+                
                 <h3 className="register-title">Registro</h3>
                 <div className='register'>
 
@@ -179,10 +187,10 @@ const Sesion = (props) => {
                     </button>
                 </div>
             </div>
-
+            :
             <div className='login'>
                 <h3 className="login-title">Login</h3>
-                <div className="login-container">
+                <div className="llogin-containerogin-container">
                 <p className='form-label-login-email'>Email</p>
                 <input name='email' className="form-label-login-email" onChange={handler}></input>
                     <p className='form-label-password-login' >Contraseña</p>
@@ -192,9 +200,12 @@ const Sesion = (props) => {
                 <button onClick={sendDataLogin} className="form-button-login">
                     Login
                 </button>
+            
             </div>
-
+        }
         </div>
+
+        
     )
 }
 
