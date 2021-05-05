@@ -27,8 +27,14 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="second-page">
-                <p>Descubre la oferta de productos de nuestra frutería</p>
+            <div className="second-page" id="second-page">
+                <p>DESCUBRE LA OFERTA DE PRODUCTOS DE NUESTRA FRUTERÍA</p>
+               {/*  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap"/>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div> */}
             </div>
 
             <div className="third-page">
