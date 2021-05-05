@@ -1,16 +1,29 @@
 import React from 'react';
 import './Header.css';
-
+import { LOGOUT } from '../../redux/types/userTypes';
 import Button from '../Button/Button';
 import { connect } from 'react-redux';
-
+import {useHistory} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 
 
 const Header = (props) => {
-    
+
+    let history = useHistory();
+    const bringMeTo = () => {
+        history.push('/profile')
+    }
+
     const getName = (name) => {
         
         return name;
+    }
+
+    const logOut = () => {
+        setTimeout(()=> {
+            props.dispatch({ type: LOGOUT, payload : {}});
+        },500);
     }
 
     return (
@@ -46,8 +59,11 @@ const Header = (props) => {
                     <div>
                         <Button name='Tienda' path='tienda'/>
                     </div>
-                    <div className="hello-title">
+                    <div className="hello-title" onClick={()=>bringMeTo()}>
                         <p>Hello {getName(props.user.name)}!</p>
+                    </div>
+                    <div className="log-out"onClick={()=>logOut()}>
+                        <FontAwesomeIcon icon={faSignOutAlt}/>
                     </div>
                 </div>
                 </>
