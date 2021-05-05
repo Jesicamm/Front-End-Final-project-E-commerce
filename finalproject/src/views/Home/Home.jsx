@@ -5,12 +5,14 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import {useHistory} from 'react-router-dom';
 
+
 import Cap from '../../Img/fruitshome.jpg'
 
 
 
 
 const Home = () => {
+
     let history = useHistory();
     return (
         <div id='content-home'>
@@ -23,7 +25,7 @@ const Home = () => {
                 <button className="buy-button"onClick={()=> history.push('/tienda')}>Haz tu pedido</button>
                 </div>
                 <div className="offers"><p>Descubre nuestras ofertas y productos</p>
-                <a class="scrollNavigation" href="">↓</a>
+                <a class="scrollNavigation" href="" id="second-page">↓</a>
                 </div>
             </div>
 

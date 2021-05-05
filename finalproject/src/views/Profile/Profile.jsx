@@ -1,18 +1,22 @@
 import React from 'react';
-
-
 import { connect } from 'react-redux';
+
+import './Profile.css';
 import Header from '../../components/Header/Header';
+import UpdateUser from '../../components/UpdateUser/UpdateUser';
 
 
 
 const Profile = (props) => {
     
-  console.log(props.user.name)
+  
 
     return (
-        <div className='content-header'>
+        <div className="content-header">
            <Header/>
+            <div className="update-user">
+                <UpdateUser/>
+            </div>
         </div>
     )
 }

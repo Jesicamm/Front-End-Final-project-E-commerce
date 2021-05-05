@@ -13,14 +13,14 @@ const Header = (props) => {
     let history = useHistory();
     const bringMeTo = () => {
         history.push('/profile')
-    }
+    } 
 
     const getName = (name) => {
         
         return name;
     }
 
-    const logOut = () => {
+    const logOut = async => {
         setTimeout(()=> {
             props.dispatch({ type: LOGOUT, payload : {}});
         },500);

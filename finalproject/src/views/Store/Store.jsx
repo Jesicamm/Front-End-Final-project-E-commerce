@@ -27,26 +27,10 @@ const Store = (props) => {
     },[])
     
 
-    const findFruit = () => {
+    const find = (element) => {
         productlist.productCollection.map(product => {
-            if (product.cathegory === 'Fruit'){
-                console.log(product)
-            }
-        });
-    }
-
-    const findVegetable = () => {
-        productlist.productCollection.map(product => {
-            if (product.cathegory === 'Vegetable'){
-                console.log(product)
-            }
-        });
-    }
-
-    const findNut = () => {
-        productlist.productCollection.map(product => {
-            if (product.cathegory === 'Nuts'){
-                console.log(product)
+            if (product.cathegory === element){
+               console.log(product)
             }
         });
     }
@@ -57,20 +41,21 @@ const Store = (props) => {
              <div>
              <h2 className="title-cathegories">Todas las Categorías</h2>
              <div className="products-container">
-                <div className="fruits-container" onClick={findFruit}>
+                <div className="fruits-container" onClick={() => find("Fruit")}>
                     <p className="vegetables-title">Frutas</p>
                     <img className="fruit-img" src={Fruits} alt="image-cap"/>
                 </div>
 
-                <div className="vegetables-container" onClick={findVegetable}>
+                <div className="vegetables-container" onClick={() => find("Vegetable")}>
                     <p className="vegetables-title">Verduras</p>
                     <img className="vegetable-img" src={Vegetables} alt="image-cap"/>
                 </div>
 
-                <div className="nuts-container" onClick={findNut}>
+                <div className="nuts-container" onClick={() => find("Nuts")}>
                     <p className="vegetables-title">Frutos secos</p>
                     <img className="nut-img" src={Nuts} alt="image-cap"/>
                 </div>
+                
             </div>
            
             </div>

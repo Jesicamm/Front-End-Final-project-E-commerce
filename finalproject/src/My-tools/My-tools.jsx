@@ -2,10 +2,6 @@ const checkError = (data) => {
 
     for (let element in data) {
 
-
-
-
-
         switch (element) {
 
             case 'name':
