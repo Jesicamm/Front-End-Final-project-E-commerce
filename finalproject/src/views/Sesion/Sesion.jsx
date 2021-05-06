@@ -13,7 +13,7 @@ const Sesion = (props) => {
 
     const [credentials, setCredentials] = useState({ email: '', password: '' });
 
-const [showRegister, setShowRegister] = useState(true)
+    const [showRegister, setShowRegister] = useState(true)
 
     const changeForm= () => setShowRegister(!showRegister)
     const handler = (e) => {
@@ -29,12 +29,12 @@ const [showRegister, setShowRegister] = useState(true)
 
         setLoginMessage('');
 
-        let notValidated = checkError(credentials)
+        /* let notValidated = checkError(credentials)
         setLoginMessage(notValidated);
 
         if (notValidated) {
             return;
-        };
+        }; */
 
         let credentialsData = {
             email: credentials.email,
@@ -43,9 +43,14 @@ const [showRegister, setShowRegister] = useState(true)
         };
 
         let response = await axios.post('http://localhost:3002/users/login', credentialsData);
+        
+        if (!response) {
+            setLoginMessage('Sus credenciales son erroneos, comprueba su email o contraseña');
+            window.confirm('Sus credenciales son erroneos, comprueba su email o contraseña');
+        };
+        
         let guardado = props.dispatch({ type: LOGIN, payload: response.data.jwt });
-        console.log(guardado)
-
+        
 
         if (guardado.payload.user.role === 'basic') {
             history.push('/profile')
@@ -55,14 +60,7 @@ const [showRegister, setShowRegister] = useState(true)
             history.push('/admin')
         }
 
-        /*  if (response.status === 200) {
-            setTimeout(() => {
-                history.push('/profile')
-            }, 1000);
-        } else {
-            setLoginMessage('Sus credenciales son erroneos, comprueba su email o contraseña');
-            window.confirm('Sus credenciales son erroneos, comprueba su email o contraseña');
-        }  */
+        
     }
 
 
@@ -154,8 +152,6 @@ const [showRegister, setShowRegister] = useState(true)
                             <input name='address' className="form-input-adress" onChange={handleState}></input>
                         </div>
 
-
-
                         <div className="city-country">
                             <p className='form-label-country'>Pais</p>
                             <input name="country" className="form-input-country" onChange={handleState}></input>
@@ -193,7 +189,7 @@ const [showRegister, setShowRegister] = useState(true)
             :
             <div className='login'>
                 <h3 className="login-title">Login</h3>
-                <div className="llogin-containerogin-container">
+                <div className="login-container">
                 <p className='form-label-login-email'>Email</p>
                 <input name='email' className="form-label-login-email" onChange={handler}></input>
                     <p className='form-label-password-login' >Contraseña</p>

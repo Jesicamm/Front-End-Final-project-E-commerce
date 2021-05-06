@@ -1,3 +1,22 @@
 .update-user{
     margin-top: 500px;
 }
+
+.data-user-container{
+    color: black;
+    margin-top: 50px;
+    margin-left: 40px;
+    background-color: white;
+    width: 600px;
+    height: 450px;
+}
+.data-user-container p{
+    margin-left: 15px;
+}
+.data-user-container h3{
+   margin-left: 15px;
+}
+
+.content-header-user-profile{
+    background-color: rgba(235, 235, 81, 0.842);
+}

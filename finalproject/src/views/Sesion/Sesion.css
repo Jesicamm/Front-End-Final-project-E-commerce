@@ -36,6 +36,12 @@
     color: red;
 }
 
+.login-message{
+    color: red;
+    height: 50px;
+    width: 200px;
+}
+
 .register{
     display: flex;
     justify-content: center;
