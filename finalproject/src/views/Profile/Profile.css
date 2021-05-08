@@ -6,8 +6,8 @@
     color: black;
     margin-top: 50px;
     margin-left: 40px;
-    background-color: white;
-    width: 600px;
+    border: solid 1px;
+    width: 500px;
     height: 450px;
 }
 .data-user-container p{
@@ -15,6 +15,7 @@
 }
 .data-user-container h3{
    margin-left: 15px;
+   
 }
 
 .content-header-user-profile{

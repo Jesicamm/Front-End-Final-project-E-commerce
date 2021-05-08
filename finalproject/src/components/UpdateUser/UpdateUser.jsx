@@ -3,15 +3,16 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {UPDATE_USER} from '../../redux/types/userTypes';
 import './UpdateUser.css';
+import { Modal } from 'bootstrap';
 
 function UpdateUser(props) {
-
+/* 
     const [userUpdate, setUser] = useState(props.user);
 
     const handleStateUpdate = (event) => {
         setUser({...userUpdate, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
     };
-
+ */
     //---AUTH-----------
 
     /* let token = props.token
@@ -22,7 +23,7 @@ function UpdateUser(props) {
 
     // FUNCTIONS
 
-    const submitUpdate = async () => {
+  /*   const submitUpdate = async () => {
 
         
         let response = await axios.put(`http://localhost:3002/users/${props.user._id}`, userUpdate);
@@ -37,10 +38,12 @@ function UpdateUser(props) {
 
 
     }
-
+}
+ */
     return (
         <div className="update-content">
-            <div className="header">
+    {/*         <Modal/>
+             <div className="header">
                 <h2>Update profile</h2>
             </div>
             <div className="spacer"></div>
@@ -91,7 +94,7 @@ function UpdateUser(props) {
             </div>
             <div className="submitUpdate">
                 <button type='submit' name='submit' onClick={()=>submitUpdate()} title='Update Profile'></button>
-            </div>
+            </div>  */}
         </div>
     )
 }

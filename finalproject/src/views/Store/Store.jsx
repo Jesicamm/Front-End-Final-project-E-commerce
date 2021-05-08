@@ -17,22 +17,24 @@ const Store = (props) => {
     let history = useHistory();
 
     const [productlist, setproductlist] = useState([]);
+    const [filterProductlist, setfilterProductlist] = useState([]);
 
     useEffect(async () => {
     let resultProduct = await axios.get(`http://localhost:3002/products`);
-        console.log('aaaaaaaaaaah', resultProduct)
     setproductlist({...productlist, productCollection: resultProduct.data});
 
     console.log(productlist)
     },[])
     
-
     const find = (element) => {
         productlist.productCollection.map(product => {
+            const newItem = ""
             if (product.cathegory === element){
-               console.log(product)
+                newItem = product 
             }
+            filterProductlist([...filterProductlist, newItem])
         });
+        console.log(filterProductlist)
     }
   
       return (
@@ -41,23 +43,22 @@ const Store = (props) => {
              <div>
              <h2 className="title-cathegories">Todas las Categorías</h2>
              <div className="products-container">
-                <div className="fruits-container" onClick={() => find("Fruit")}>
+                <div className="fruits-container" onClick={() => find("Fruits")}>
                     <p className="vegetables-title">Frutas</p>
                     <img className="fruit-img" src={Fruits} alt="image-cap"/>
                 </div>
 
-                <div className="vegetables-container" onClick={() => find("Vegetable")}>
+                <div className="vegetables-container" onClick={() => find("Vegetables")}>
                     <p className="vegetables-title">Verduras</p>
                     <img className="vegetable-img" src={Vegetables} alt="image-cap"/>
                 </div>
 
-                <div className="nuts-container" onClick={() => find("Nuts")}>
+                <div className="nuts-container" onClick={() => find("nuts")}>
                     <p className="vegetables-title">Frutos secos</p>
                     <img className="nut-img" src={Nuts} alt="image-cap"/>
                 </div>
-                
             </div>
-           
+           <ul><li>hola</li></ul>
             </div>
          </div>
       )
