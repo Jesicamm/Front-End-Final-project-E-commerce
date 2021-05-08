@@ -8,68 +8,87 @@ import { connect } from 'react-redux';
 import Fruits from '../../Img/fruitsByColours.png'
 import Vegetables from '../../Img/vegetablesByColours.jpg'
 import Nuts from '../../Img/nutsbyColours.jpeg'
+import { ADD_CART } from '../../redux/types/productTypes';
 
 
 
 
 const Store = (props) => {
    
-    let history = useHistory();
-
+    console.log(props)
     const [productlist, setproductlist] = useState([]);
-    const [filterProductlist, setfilterProductlist] = useState([]);
+    const [filterProductlist, setFilterProductlist] = useState([]);
+    const [productCart, setProductCart] = useState([]);
 
     useEffect(async () => {
-    let resultProduct = await axios.get(`http://localhost:3002/products`);
-    setproductlist({...productlist, productCollection: resultProduct.data});
-
-    console.log(productlist)
-    },[])
+        let resultProduct = await axios.get(`http://localhost:3002/products`);
+        setproductlist(resultProduct.data);
+        },[])
     
     const find = (element) => {
-        productlist.productCollection.map(product => {
-            const newItem = ""
-            if (product.cathegory === element){
-                newItem = product 
-            }
-            filterProductlist([...filterProductlist, newItem])
+        const newList = productlist.filter(product => {
+            return product.cathegory == element
         });
-        console.log(filterProductlist)
+        setFilterProductlist(newList)
     }
-  
+
+    const addProduct = (id) => {
+        const newProduct = filterProductlist.filter(product => {
+
+            return product._id == id
+            
+        });
+        setProductCart([...productCart, newProduct])
+        let guardado = props.dispatch({ type: ADD_CART, payload: productCart });
+        console.log(guardado)
+        console.log(newProduct)
+    }
       return (
          <div className='store-container'>
              <Header/>
              <div>
              <h2 className="title-cathegories">Todas las Categorías</h2>
              <div className="products-container">
-                <div className="fruits-container" onClick={() => find("Fruits")}>
+                <div className="fruits-container" onClick={() => find("Fruit")}>
                     <p className="vegetables-title">Frutas</p>
                     <img className="fruit-img" src={Fruits} alt="image-cap"/>
                 </div>
 
-                <div className="vegetables-container" onClick={() => find("Vegetables")}>
+                <div className="vegetables-container" onClick={() => find("Vegetable")}>
                     <p className="vegetables-title">Verduras</p>
                     <img className="vegetable-img" src={Vegetables} alt="image-cap"/>
                 </div>
 
-                <div className="nuts-container" onClick={() => find("nuts")}>
+                <div className="nuts-container" onClick={() => find("Nuts")}>
                     <p className="vegetables-title">Frutos secos</p>
                     <img className="nut-img" src={Nuts} alt="image-cap"/>
                 </div>
             </div>
-           <ul><li>hola</li></ul>
+           <ul className="list-container">{
+            filterProductlist.map( (product, key)=>{
+                return (
+                <li className="list" key={key}>
+                    <p>{product.name}</p>
+                    <p>{product.price} $</p>
+                    {/* <img src={product.posterUrl} alt="imagenes"/> */}
+                    <button onClick={() => {addProduct(product._id)}}>añadir</button>
+                    
+                </li>)
+               
+            })
+           }</ul>
             </div>
          </div>
       )
    
 };
 
-const mapStateToProps = state => {
+/* const mapStateToProps = state => {
    return {
       user: state.user,
-      token: state.token
+      token: state.token,
+      productCart: state.productCart
    }
-};
+}; */
 
-export default connect(mapStateToProps)(Store);
+export default connect()(Store);

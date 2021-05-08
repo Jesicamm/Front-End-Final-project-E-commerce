@@ -6,7 +6,7 @@ import {UPDATE_USER} from '../../redux/types/userTypes';
 import {Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
-function Modal(props) {
+const Modal = (props) => {
 
     const [userUpdate, setUser] = useState(props.user);
 
@@ -37,12 +37,11 @@ function Modal(props) {
             alert('Lo siento , no se pudo actualizar el registro, vuelve a intentarlo mas tarde');
         }
     }
-  state={
-        open: false,
-  }
+    const [open, setOpen] = useState(false);
+
 
   openModal=()=>{
-    this.setState({open: !this.state.open});
+    setOpen(!open)
   }
 
 
@@ -56,11 +55,11 @@ function Modal(props) {
       <>
       <div className="principal">
         <div className="secundario">
-      <Button color="success" onClick={this.openModal}>Mostrar Modal</Button>
+      <Button color="success" onClick={openModal}>Mostrar Modal</Button>
 
       </div></div>
 
-      <Modal isOpen={this.state.open} style={modalStyles}>
+      <Modal isOpen={open} style={modalStyles}>
         <ModalHeader>
           Actualizar mis datos
         </ModalHeader>
@@ -77,7 +76,7 @@ function Modal(props) {
 
         <ModalFooter>
             <Button color="primary" onClick={()=>submitUpdate()}>Actualizar mis datos</Button>
-            <Button color="secondary" onClick={this.openModal}>Cerrar</Button>
+            <Button color="secondary" onClick={openModal}>Cerrar</Button>
         </ModalFooter>
       </Modal>
       </>
