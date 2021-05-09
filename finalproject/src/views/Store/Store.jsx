@@ -17,14 +17,20 @@ const Store = (props) => {
     
     const [productlist, setproductlist] = useState([]);
     const [filterProductlist, setFilterProductlist] = useState([]);
-    
-       const  productSelected = [];
+    const [productToBuy, setProductToBuy] = useState([]);
    
+
 
    
     useEffect(async () => {
         let resultProduct = await axios.get(`http://localhost:3002/products`);
         setproductlist(resultProduct.data);
+        const parseObject = JSON.parse(localStorage.getItem("productCart"))
+        
+        if(parseObject == null){
+            return;
+        }
+        else setProductToBuy(parseObject); 
         },[])
     
     const find = (element) => {
@@ -34,25 +40,12 @@ const Store = (props) => {
         setFilterProductlist(newList)
     }
 
-    const addProduct = () => {
-        
-        const newProduct = filterProductlist.filter(product => {
-               return product 
-  
-        });
-        
-        
-       /* let guardado = props.dispatch({ type: ADD_CART, payload: newProduct}); */
+    const addProduct = (product) => {
+        const productToCart = [...productToBuy, product]
+        setProductToBuy(productToBuy => productToCart)
 
-       /* console.log(guardado, 'guardado') */
-        
-        
-        
-    
-     /*    setProductCart(productCart.productResult)
-        const productSelect = productCart.productResult.push(newProduct) */
+        localStorage.setItem("productCart", JSON.stringify(productToCart));        
 
-      //
     }
       return (
          <div className='store-container'>
@@ -79,13 +72,14 @@ const Store = (props) => {
             filterProductlist.map( (product, key)=>{
                 return (
                 <li className="list" key={key}>
+                   
                     <p>{product.name}</p>
                      <div className="product-img-container">
                         <img className="product" src={product.posterUrl} alt="imagenes"/> 
                     </div>
                     <p>{product.price} $</p>
                    
-                    <button onClick={() => addProduct({product})}>añadir</button>
+                    <button onClick={() => addProduct(product)}>añadir</button>
                     
                 </li>)
                

@@ -3,6 +3,7 @@ import './Header.css';
 import { LOGOUT } from '../../redux/types/userTypes';
 import Button from '../Button/Button';
 import { connect } from 'react-redux';
+import {useEffect, useState} from "react";
 import {useHistory} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
@@ -10,10 +11,23 @@ import { faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 
 const Header = (props) => {
 
+    const [totalProducts,setTotalProducts]= useState([])
+
     let history = useHistory();
     const bringMeTo = () => {
         history.push('/profile')
-    } 
+    }
+    useEffect(()=>{
+        setTotalProducts(JSON.parse(localStorage.getItem("productCart")).length)
+        window.onstorage = function(e) {
+            console.log('The ' + e.key +
+              ' key has been changed from ' + e.oldValue +
+              ' to ' + e.newValue + '.');
+
+          };
+         
+    })
+    
 
     const getName = (name) => {
         
@@ -48,6 +62,7 @@ const Header = (props) => {
             <div>
                 <Button name='Cestas Preparadas' path='cestas'/>
             </div>
+
             </>
                 :
                 <>
@@ -65,6 +80,11 @@ const Header = (props) => {
                     <div className="log-out"onClick={()=>logOut()}>
                         <FontAwesomeIcon icon={faSignOutAlt}/>
                     </div>
+                    <div>
+                <Button name='Carrito' path='carrito'/>
+                
+                    <p>{totalProducts}</p>
+                </div>
                 </div>
                 </>
             }

@@ -10,8 +10,8 @@ const store = createStoreWithMiddleware(
     rootReducer,
     load({
         preloadState : {
-            productCart: [],
-            user : {},
+
+            user : {},  productCart: [],
         },
         state: ['dataUser']
     }),
