@@ -12,5 +12,6 @@
 }
 .hello-title{
     margin-right: 60px;
+    margin-top: 16px;
     cursor: pointer;
 }

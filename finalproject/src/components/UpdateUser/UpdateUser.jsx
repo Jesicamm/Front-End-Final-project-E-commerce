@@ -3,16 +3,16 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {UPDATE_USER} from '../../redux/types/userTypes';
 import './UpdateUser.css';
-import { Modal } from 'bootstrap';
+
 
 function UpdateUser(props) {
-/* 
+ 
     const [userUpdate, setUser] = useState(props.user);
 
     const handleStateUpdate = (event) => {
         setUser({...userUpdate, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
     };
- */
+ 
     //---AUTH-----------
 
     /* let token = props.token
@@ -23,7 +23,7 @@ function UpdateUser(props) {
 
     // FUNCTIONS
 
-  /*   const submitUpdate = async () => {
+   const submitUpdate = async () => {
 
         
         let response = await axios.put(`http://localhost:3002/users/${props.user._id}`, userUpdate);
@@ -38,63 +38,63 @@ function UpdateUser(props) {
 
 
     }
-}
- */
+
+ 
     return (
         <div className="update-content">
-    {/*         <Modal/>
+             
              <div className="header">
-                <h2>Update profile</h2>
+                <h2>Actualizar mis Datos</h2>
             </div>
             <div className="spacer"></div>
             <div className="form-modal">
-                <div>
+                <div className='update-data'>
                     <p>Nombre</p>
-                    <input type='text' name='name' title='Full Name' lenght='30' onChange={handleStateUpdate}></input> 
+                    <input type='text'className='update-input' name='name' title='Full Name' lenght='30' onChange={handleStateUpdate}></input> 
                 </div>
 
-                <div>
+                <div className='update-data'>
                     <p>Apellidos</p>
-                    <input type='text' name='surname' title='Surname' lenght='30' onChange={handleStateUpdate}></input> 
+                    <input type='text' name='surname'className='update-input' title='Surname' lenght='30' onChange={handleStateUpdate}></input> 
                 </div>
 
-                <div>
+                <div className='update-data'>
                     <p>Email</p>
-                    <input type='email' name='email' title='Email' lenght='30' onChange={handleStateUpdate}></input> 
+                    <input type='email' name='email' className='update-input'title='Email' lenght='30' onChange={handleStateUpdate}></input> 
                 </div>
 
-                <div>
+                <div className='update-data'>
                     <p>Teléfono de Contacto</p>
-                    <input type='number' name='phone' title='Phone Number' lenght='12' onChange={handleStateUpdate}></input> 
+                    <input type='number' name='phone'className='update-input' title='Phone Number' lenght='12' onChange={handleStateUpdate}></input> 
                 </div>
 
-                <div>
+                <div className='update-data'>
                     <p>Fecha de Nacimiento</p>
-                    <input type='date' name='birthday' title='Date of Birth' lenght='30' onChange={handleStateUpdate}></input>
+                    <input type='date' name='birthday' className='update-input'title='Date of Birth' lenght='30' onChange={handleStateUpdate}></input>
                 </div>
 
-                <div>
+                <div className='update-data'>
                     <p>Dirección</p>
-                    <input type='text' name='address' title='Full Address' lenght='250' onChange={handleStateUpdate}></input>
+                    <input type='text' name='address' className='update-input'title='Full Address' lenght='250' onChange={handleStateUpdate}></input>
                 </div>
-                <div>
+                <div className='update-data'>
                     <p>País</p>
-                    <input type='text' name='country' title='Country' lenght='250' onChange={handleStateUpdate}></input> 
+                    <input type='text' name='country'className='update-input' title='Country' lenght='250' onChange={handleStateUpdate}></input> 
                 </div>
 
-                <div>
+                <div className='update-data'>
                     <p>Ciudad</p>
-                    <input type='text' name='city' title='City' lenght='250' onChange={handleStateUpdate}></input>
+                    <input type='text' name='city'className='update-input' title='City' lenght='250' onChange={handleStateUpdate}></input>
                 </div>
 
-                <div>
+                <div className='update-data'>
                     <p>Código postal</p>
-                    <input type='text' name='postal' title='Postal' lenght='250' onChange={handleStateUpdate}></input>
+                    <input type='text' name='postal' className='update-input'title='Postal' lenght='250' onChange={handleStateUpdate}></input>
                 </div>
             </div>
             <div className="submitUpdate">
-                <button type='submit' name='submit' onClick={()=>submitUpdate()} title='Update Profile'></button>
-            </div>  */}
+                <button type='submit' name='submit' onClick={submitUpdate} title='Update Profile'></button>
+            </div>  
         </div>
     )
 }

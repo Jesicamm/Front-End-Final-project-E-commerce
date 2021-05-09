@@ -8,18 +8,20 @@ import { connect } from 'react-redux';
 import Fruits from '../../Img/fruitsByColours.png'
 import Vegetables from '../../Img/vegetablesByColours.jpg'
 import Nuts from '../../Img/nutsbyColours.jpeg'
-import { ADD_CART } from '../../redux/types/productTypes';
 
 
 
 
 const Store = (props) => {
    
-    console.log(props)
+    
     const [productlist, setproductlist] = useState([]);
     const [filterProductlist, setFilterProductlist] = useState([]);
-    const [productCart, setProductCart] = useState([]);
+    
+       const  productSelected = [];
+   
 
+   
     useEffect(async () => {
         let resultProduct = await axios.get(`http://localhost:3002/products`);
         setproductlist(resultProduct.data);
@@ -32,16 +34,25 @@ const Store = (props) => {
         setFilterProductlist(newList)
     }
 
-    const addProduct = (id) => {
+    const addProduct = () => {
+        
         const newProduct = filterProductlist.filter(product => {
-
-            return product._id == id
-            
+               return product 
+  
         });
-        setProductCart([...productCart, newProduct])
-        let guardado = props.dispatch({ type: ADD_CART, payload: productCart });
-        console.log(guardado)
-        console.log(newProduct)
+        
+        
+       /* let guardado = props.dispatch({ type: ADD_CART, payload: newProduct}); */
+
+       /* console.log(guardado, 'guardado') */
+        
+        
+        
+    
+     /*    setProductCart(productCart.productResult)
+        const productSelect = productCart.productResult.push(newProduct) */
+
+      //
     }
       return (
          <div className='store-container'>
@@ -69,26 +80,22 @@ const Store = (props) => {
                 return (
                 <li className="list" key={key}>
                     <p>{product.name}</p>
+                     <div className="product-img-container">
+                        <img className="product" src={product.posterUrl} alt="imagenes"/> 
+                    </div>
                     <p>{product.price} $</p>
-                    {/* <img src={product.posterUrl} alt="imagenes"/> */}
-                    <button onClick={() => {addProduct(product._id)}}>añadir</button>
+                   
+                    <button onClick={() => addProduct({product})}>añadir</button>
                     
                 </li>)
                
             })
-           }</ul>
+        }</ul>
             </div>
          </div>
       )
    
 };
-
-/* const mapStateToProps = state => {
-   return {
-      user: state.user,
-      token: state.token,
-      productCart: state.productCart
-   }
-}; */
+ 
 
 export default connect()(Store);

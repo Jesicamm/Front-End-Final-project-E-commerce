@@ -1,4 +1,22 @@
 .form-modal{
     display: flex;
     flex-direction: column;
+    color: black;
+}
+.update-data{
+    display: flex;
+    flex-direction: row;
+}
+
+.update-content{
+    margin-top: 50px;
+    border: solid 1px;
+    width: 400px;
+    height: 450px;
+}
+
+.update-input{
+    height: 20px;
+    margin-left: 20px;
+    margin-top: 2px;
 }

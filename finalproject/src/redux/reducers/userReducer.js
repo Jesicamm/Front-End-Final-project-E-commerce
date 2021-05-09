@@ -1,19 +1,24 @@
-import {LOGIN, LOGOUT,UPDATE_USER} from '../types/userTypes';
+import {LOGIN, LOGOUT,UPDATE_USER, ADD_CART} from '../types/userTypes';
 
 const initialState = {
     user: {},
+    productCart: [],
     token: ""
 };
 
 const userReducer = (state = initialState, action) => {
     switch(action.type){
+        case ADD_CART :
+            return {
+                ...state,
+                productCart: action.payload.productCart
+            }
         case LOGIN :
             return {
                 ...state,
                 user : action.payload.user,
                 token : action.payload.token
             }
-
         case LOGOUT :
             return initialState
 
