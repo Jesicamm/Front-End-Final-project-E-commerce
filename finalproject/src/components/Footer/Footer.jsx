@@ -1,4 +1,8 @@
 import React from 'react';
+import './Footer.css';
+import Gmail from '../../Img/gmail.png'
+import Whats from '../../Img/whatsapp.png'
+import Call from '../../Img/call.png'
 
 const Footer = () => {
 
@@ -6,23 +10,33 @@ const Footer = () => {
 
         <div className="vistaFooter">
             <div className="header-footer">
-                <div className="header-footer-question">Llama al 900 000 000</div>
-                <div className="header-footer-question">Whast app: 62222222</div>
-                <div className="header-footer-question">lahuertademarian@frute.com</div>  
+                <div className="header-footer-contact">
+                 <img className="image-contact" src={Call} alt="llamada"/> 
+                 <p>900 000 000</p>
+                </div>
+                <div className="header-footer-contact">
+                    <img className="image-contact" src={Whats} alt="whatsapp"/> 
+                    <p>622222222</p>
+                </div>
+                <div className="header-footer-contact">
+                    <img className="image-contact" src={Gmail} alt="gmail"/> 
+                    <p>lahuertademarian@frute.com</p>
+                </div>  
             </div>
             <div className="links-block">
-                <ul className="links-block first-block">
-                    <li className="first-block-li">Preguntas frecuentes</li>
-                    <li className="first-block-li">Avisos legales</li>
-                </ul>
-                <ul className="links-block second-block">
-                    <li className="second-block-li">Centro de ayuda</li>
-                    <li className="second-block-li">Términos de uso</li>
-                    <li className="second-block-li">Contáctanos</li>
-                </ul>
+                    <p className="first-block-li">Preguntas frecuentes</p>
+                    <p className="first-block-li">Avisos legales</p>
             </div>
-            <div className="link-languages">
-                Español
+            <div className="links-block">
+                
+                    <p className="second-block-li">Centro de ayuda</p>
+                    <p className="second-block-li">Términos de uso</p>
+                    <p className="second-block-li">Contáctanos</p>
+                
+            </div>
+            <div className="links-block">
+                <p>Español</p>
+                <p>Inglés</p>
             </div>
         </div>
     )

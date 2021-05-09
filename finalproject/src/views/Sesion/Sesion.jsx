@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
@@ -7,6 +6,7 @@ import { connect } from 'react-redux';
 import { LOGIN } from '../../redux/types/userTypes';
 import './Sesion.css';
 import Header from "../../components/Header/Header";
+import SesionShop from '../../Img/sesion.jpg'
 
 
 const Sesion = (props) => {
@@ -123,11 +123,16 @@ const Sesion = (props) => {
     };
 
     return (
-        <div className="content">
+        <div className="content-sesion">
           <Header/>
-          <div className='content-sesion'>
-            
-            <button onClick={changeForm}>{showRegister ? "Login" : "Registro"}</button>
+          <div className='sesion-img'>
+              <p>Estás a punto de disfrutar de todas nuestras exclusivas ofertas!!</p>
+            <img className="image-sesion" src={SesionShop} alt="whatsapp"/>
+          </div>
+          <div className='content-sesion-register-login'>
+            <div className='sesion-modal-btn-content'>
+                <button className='sesion-modal-btn' onClick={changeForm}>{showRegister ? "Login" : "Registro"}</button>
+            </div>
             {showRegister ?
             
             <div className="container-register">
@@ -181,7 +186,7 @@ const Sesion = (props) => {
 
                 </div>
                 <div className="button-div">
-                    <button onClick={sendDataRegister} className="form-button-register">
+                    <button onClick={sendDataRegister} className="sesion-press-btn">
                         Registrarse
                     </button>
                 </div>
@@ -196,7 +201,7 @@ const Sesion = (props) => {
                 <input type='password' name='password' className="form-input-password" onChange={handler}></input>
                 <div className='login-message'>{loginMessage}</div>
                 </div>
-                <button onClick={sendDataLogin} className="form-button-login">
+                <button onClick={sendDataLogin} className="sesion-press-btn">
                     Login
                 </button>
             

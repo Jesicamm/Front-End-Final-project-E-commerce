@@ -30,28 +30,23 @@ const Cart = (props) => {
            <Header/>
            <div className='cart-container'>
                <div className="cart-user-container">
-               <h3>Mi Pedido</h3>
-               <ul className="list-container">{
-                listToBuy.map( (product, key)=>{
-                return (
-                <li className="list" key={key}>
-                     <button onClick={() => removeProduct(product._id)}>x</button>
-                    <p>{product.name}</p>
-                     <div className="product-img-container">
-                        <img className="product" src={product.posterUrl} alt="imagenes"/> 
-                    </div>
-                    <p>{product.price} $</p>
-                  
-                </li>)
-            })
+                    <h3>Mi Pedido</h3>
+                    <ul className="list-container">{
+                     listToBuy.map( (product, key)=>{
+                    return (
+                      <li className="list" key={key}>
+                         <p>{product.name}</p>
+                         <div className="product-img-container">
+                            <img className="product" src={product.posterUrl} alt="imagenes"/> 
+                         </div>
+                         <p>{product.price} $</p>
+                         <button onClick={() => removeProduct(product._id)}>x</button>
+              </li>)
+                })
         }</ul>
 
-        <p>{listToBuy.reduce((total, product) => total + product.price, 0)}$</p>
-            
-                    
-        
-              
-        <button className="buy-btn">Comprar</button> 
+             <p>{listToBuy.reduce((total, product) => total + product.price, 0)}$</p>
+             <button className="buy-btn">Comprar</button> 
                </div>
              
            </div>
