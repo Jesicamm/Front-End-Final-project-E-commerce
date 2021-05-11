@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import Fruits from '../../Img/fruitsByColours.png'
 import Vegetables from '../../Img/vegetablesByColours.jpg'
 import Nuts from '../../Img/nutsbyColours.jpeg'
+import Footer from '../../components/Footer/Footer';
 
 
 
@@ -72,14 +73,16 @@ const Store = (props) => {
             filterProductlist.map( (product, key)=>{
                 return (
                 <li className="list" key={key}>
-                   
-                    <p>{product.name}</p>
+                   <div className="product-name-container">
+                         <p>{product.name}</p>
+                    </div>
                      <div className="product-img-container">
                         <img className="product" src={product.posterUrl} alt="imagenes"/> 
                     </div>
-                    <p>{product.price} $</p>
-                   
-                    <button onClick={() => addProduct(product)}>añadir</button>
+                    <div className="product-price-container">
+                        <p>{product.price} €</p>
+                    </div>
+                    <button className="buttond-add-product" onClick={() => addProduct(product)}>Añadir al carrito</button>
                     
                 </li>)
                

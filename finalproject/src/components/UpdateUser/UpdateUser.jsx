@@ -1,25 +1,20 @@
 import React, {useState} from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux';
+import {Modal, TextField, Button} from "@material-ui/core" 
+import {makeStyles} from "@material-ui/core/styles" 
 import {UPDATE_USER} from '../../redux/types/userTypes';
 import './UpdateUser.css';
 
 
-function UpdateUser(props) {
+const UpdateUser = (props) =>{
  
     const [userUpdate, setUser] = useState(props.user);
 
     const handleStateUpdate = (event) => {
         setUser({...userUpdate, [event.target.name]: event.target.type === "number" ? +event.target.value : event.target.value});
     };
- 
-    //---AUTH-----------
 
-    /* let token = props.token
-    let auth = {
-        headers: {
-          'Authorization': `Bearer ${token}` 
-        }}; */
 
     // FUNCTIONS
 
@@ -94,7 +89,7 @@ function UpdateUser(props) {
             </div>
             <div className="submitUpdate">
                 <button type='submit' name='submit' onClick={submitUpdate} title='Update Profile'></button>
-            </div>  
+            </div>   
         </div>
     )
 }

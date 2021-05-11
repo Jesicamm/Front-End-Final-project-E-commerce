@@ -126,8 +126,12 @@ const Sesion = (props) => {
         <div className="content-sesion">
           <Header/>
           <div className='sesion-img'>
-              <p>Estás a punto de disfrutar de todas nuestras exclusivas ofertas!!</p>
-            <img className="image-sesion" src={SesionShop} alt="whatsapp"/>
+              <div className='sesion-img-text'>
+                 <h5>Estás a punto de disfrutar de todas nuestras ofertas!!</h5>
+              </div>
+              <div className='sesion-img-container'> 
+                <img className="image-sesion" src={SesionShop} alt="whatsapp"/>
+              </div>
           </div>
           <div className='content-sesion-register-login'>
             <div className='sesion-modal-btn-content'>
@@ -137,55 +141,60 @@ const Sesion = (props) => {
             
             <div className="container-register">
                 
-                <h3 className="register-title">Registro</h3>
+                <h3 className="register-title">CREAR UNA CUENTA</h3>
                 <div className='register'>
 
                     <div className='register-row'>
-                        <div className="form-content-inputs-register">
-                            <p className='form-label-name'>Nombre</p>
-                            <input name='name' className="form-input-register-name" onChange={handleState}></input>
+                        
+                            <p className='form-label-register'>Nombre</p>
+                            <input name='name' className="form-input-register" onChange={handleState}></input>
 
-                            <p className='form-label-surname'>Apellidos</p>
-                            <input name='surname' className="form-input-surname" onChange={handleState}></input>
+                            <p className='form-label-register'>Apellidos</p>
+                            <input name='surname' className="form-input-register" onChange={handleState}></input>
 
                             <div className="phone">
-                                <p className='form-label-phone'>Teléfono de contacto</p>
-                                <input name="phone" className="form-input-phone" onChange={handleState}></input>
+                                <p className='form-label-register'>Teléfono de contacto</p>
+                                <input name="phone" className="form-input-register" onChange={handleState}></input>
                             </div>
 
-                            <p className='form-label-adress'>Direccíon</p>
-                            <input name='address' className="form-input-adress" onChange={handleState}></input>
-                        </div>
+                            <div className="birthday">
+                                <p className='form-label-register'>Fecha de nacimiento</p>
+                                <input name="birth" type='date' className="form-input-register" onChange={handleState}></input>
+                            </div>
 
-                        <div className="city-country">
-                            <p className='form-label-country'>Pais</p>
-                            <input name="country" className="form-input-country" onChange={handleState}></input>
-                        </div>
+                            <p className='form-label-register'>Direccíon</p>
+                            <input name='address' className="form-input-register" onChange={handleState}></input>
+                        
+
+                        
                     </div>
+                    
                     <div className='register-row'>
+                        <div className="city-country">
+                                <p className='form-label-register'>Pais</p>
+                                <input name="country" className="form-input-register" onChange={handleState}></input>
+                        </div>
                         <div className="city-city">
-                            <p className='form-label-city'>Ciudad</p>
-                            <input name="city" className="form-input-city" onChange={handleState}></input>
+                            <p className='form-label-register'>Ciudad</p>
+                            <input name="city" className="form-input-register" onChange={handleState}></input>
                         </div>
                         <div className="city-cp">
                             <p className='form-label-cp'>CP</p>
-                            <input name="postal" className="form-input-cp" onChange={handleState}></input>
+                            <input name="postal" className="form-input-register" onChange={handleState}></input>
 
                         </div>
 
-                        <p className='form-label-email'>Email</p>
-                        <input name='email' className="form-input-email" onChange={handleState}></input>
+                        <p className='form-label-register'>Email</p>
+                        <input name='email' className="form-input-register" onChange={handleState}></input>
                         <div className="form-password-register">
-                            <p className='form-label-password' >Contraseña</p>
-                            <input type='password' name='password' className="form-input-password" onChange={handleState}></input>
+                            <p className='form-label-register' >Contraseña</p>
+                            <input type='password' name='password' className="form-input-register" onChange={handleState}></input>
                         </div>
-
-                        <div className='register-message'>{registerMessage}</div>
-
                     </div>
-
-                </div>
+                        
+                    </div>
                 <div className="button-div">
+                     <div className='register-message'><p>{registerMessage}</p></div>
                     <button onClick={sendDataRegister} className="sesion-press-btn">
                         Registrarse
                     </button>
@@ -193,12 +202,12 @@ const Sesion = (props) => {
             </div>
             :
             <div className='login'>
-                <h3 className="login-title">Login</h3>
+                <h3 className="login-title">Iniciar Sesión</h3>
                 <div className="login-container">
-                <p className='form-label-login-email'>Email</p>
-                <input name='email' className="form-label-login-email" onChange={handler}></input>
-                    <p className='form-label-password-login' >Contraseña</p>
-                <input type='password' name='password' className="form-input-password" onChange={handler}></input>
+                <p className='form-label-login'>Email</p>
+                <input name='email' className="form-label-login-input" onChange={handler}></input>
+                    <p className='form-label-login' >Contraseña</p>
+                <input type='password' name='password' className="form-label-login-input" onChange={handler}></input>
                 <div className='login-message'>{loginMessage}</div>
                 </div>
                 <button onClick={sendDataLogin} className="sesion-press-btn">

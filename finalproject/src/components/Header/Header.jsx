@@ -7,26 +7,31 @@ import {useEffect, useState} from "react";
 import {useHistory} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart} from '@fortawesome/free-solid-svg-icons';
 
 
 const Header = (props) => {
 
     const [totalProducts,setTotalProducts]= useState([])
-
+    console.log(props.user);
     let history = useHistory();
     const bringMeTo = () => {
         history.push('/profile')
     }
-    useEffect(()=>{
+
+    const bringMeToCart = () => {
+        history.push('/carrito')
+    }
+/*     useEffect(()=>{
         setTotalProducts(JSON.parse(localStorage.getItem("productCart")).length)
         window.onstorage = function(e) {
             console.log('The ' + e.key +
               ' key has been changed from ' + e.oldValue +
               ' to ' + e.newValue + '.');
 
-          };
+          }; 
          
-    })
+    }) */
     
 
     const getName = (name) => {
@@ -43,7 +48,7 @@ const Header = (props) => {
     return (
         <div className='content-header'>
             {
-                !props.user
+                !props.user?._id
                 ?
                 <>
             <div className='hort'>
@@ -58,10 +63,12 @@ const Header = (props) => {
             <div>
                 <Button name='Tienda' path='tienda'/>
             </div>
-            
             <div>
-                <Button name='Cestas Preparadas' path='cestas'/>
+            <div className="cart-icon"onClick={()=>bringMeToCart()}>
+                        <FontAwesomeIcon icon={faShoppingCart}/>
+                    </div>
             </div>
+           
 
             </>
                 :
@@ -76,15 +83,17 @@ const Header = (props) => {
                     </div>
                     <div className="hello-title" onClick={()=>bringMeTo()}>
                         <p>Hello {getName(props.user.name)}!</p>
+                    </div> 
+                    <div className="cart-icon"onClick={()=>bringMeToCart()}>
+                        <FontAwesomeIcon icon={faShoppingCart}/>
                     </div>
+
                     <div className="log-out"onClick={()=>logOut()}>
                         <FontAwesomeIcon icon={faSignOutAlt}/>
                     </div>
-                    <div>
-                <Button name='Carrito' path='carrito'/>
                 
                     <p>{totalProducts}</p>
-                </div>
+                
                 </div>
                 </>
             }
