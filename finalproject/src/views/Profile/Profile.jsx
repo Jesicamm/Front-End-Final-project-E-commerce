@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Orange from '../../Img/orange.png'
 
@@ -12,6 +12,7 @@ import UpdateUser from '../../components/UpdateUser/UpdateUser';
 
 const Profile = (props) => {
     
+    const [showModal, setShowModal] = useState(false);
 
     return (
         <div className="content-header-user-profile">
@@ -25,7 +26,9 @@ const Profile = (props) => {
                     <div>
                     <p>Bienvenid@ {props.user.name}</p>
                     </div>
-               </div>
+                    </div>
+                    <div className="data-update-container">
+            {!showModal ?
                <div className="data-user-container">
                 <h3>Mis Datos</h3>
                 <p>Nombre: {props.user.name}</p>
@@ -33,21 +36,20 @@ const Profile = (props) => {
                 <p>Email: {props.user.email}</p>
                 <p>Teléfono de contacto: {props.user.phone}</p>
                 <p>Fecha de nacimiento: {props.user.birthday}</p>
-                <p>Dirección: {props.user.adress}</p>
+                <p>Dirección: {props.user.address}</p>
                 <p>País: {props.user.country}</p>
                 <p>Ciudad : {props.user.city}</p>
                 <p>Código Postal : {props.user.postal}</p>
-                <button className="update-btn">Actualizar mis datos</button> 
                </div>
-               <UpdateUser/>
+               :
+                <UpdateUser/>}
+                <button className="update-btn"onClick={() => setShowModal(!showModal)}>{showModal?"Mis Datos" : "Actualizar mis datos"}</button> 
+                </div>
+               
             </div>
-               {/* <div className="update-user">
-                    <UpdateUser/>
-               </div> */}
+              
            </div>
-          {/*  <div className="order-user-container">
-               <h3>Mis Pedidos</h3>
-           </div> */}
+         
            
         </div>
     )

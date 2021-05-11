@@ -27,6 +27,10 @@ const Cart = (props) => {
         setListToBuy(parseObject)
     },[]) 
 
+    const buy = ()=> {
+        alert('Pedido realizado con éxito!');
+    } 
+
     return (
         <div className="content-header-user-cart">
            <Header/>
@@ -61,7 +65,7 @@ const Cart = (props) => {
                     <p>TOTAL: {listToBuy?.reduce((total, product) => total + product.price, 0)}€</p>
                 </div>
 
-                <button className="buy-cart-btn">Comprar</button> 
+                <button className="buy-cart-btn" onClick={buy}>Comprar</button> 
              </div>
                </div>
              

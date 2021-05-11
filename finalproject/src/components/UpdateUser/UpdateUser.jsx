@@ -38,11 +38,11 @@ const UpdateUser = (props) =>{
     return (
         <div className="update-content">
              
-             <div className="header">
+             <div className="header-update">
                 <h2>Actualizar mis Datos</h2>
             </div>
-            <div className="spacer"></div>
-            <div className="form-modal">
+            <div className="spacer-update"></div>
+            <div className="form-modal-update">
                 <div className='update-data'>
                     <p>Nombre</p>
                     <input type='text'className='update-input' name='name' title='Full Name' lenght='30' onChange={handleStateUpdate}></input> 
@@ -88,7 +88,7 @@ const UpdateUser = (props) =>{
                 </div>
             </div>
             <div className="submitUpdate">
-                <button type='submit' name='submit' onClick={submitUpdate} title='Update Profile'></button>
+                <button className="submit-update" type='submit' name='submit' onClick={submitUpdate} title='Update Profile'>Guardar los cambios</button>
             </div>   
         </div>
     )

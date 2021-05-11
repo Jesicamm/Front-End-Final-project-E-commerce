@@ -10,10 +10,15 @@
 }
 .data-user-container p{
     margin-left: 15px;
-    margin-top: 14px;
+    margin-top: 5px;
 }
 .data-user-container h3{
    margin-left: 15px;   
+}
+.data-update-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .user-container{
     display: flex;

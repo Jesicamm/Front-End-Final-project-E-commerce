@@ -104,11 +104,14 @@ const Sesion = (props) => {
             email: user.email,
             password: user.password,
             address: user.address,
+            birthday: user.birthday,
             phone: user.phone,
             country: user.country,
             city: user.city,
             postal: user.postal
         };
+
+        console.log('user',user)
 
         let endpointUser = 'http://localhost:3002/users';
 
@@ -159,7 +162,7 @@ const Sesion = (props) => {
 
                             <div className="birthday">
                                 <p className='form-label-register'>Fecha de nacimiento</p>
-                                <input name="birth" type='date' className="form-input-register" onChange={handleState}></input>
+                                <input name="birthday" type='date' className="form-input-register" onChange={handleState}></input>
                             </div>
 
                             <p className='form-label-register'>Direccíon</p>
