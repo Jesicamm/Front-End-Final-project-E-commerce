@@ -3,6 +3,7 @@ import {BrowserRouter, Switch , Route} from 'react-router-dom';
 import Cart from './views/Cart/Cart';
 import Home from './views/Home/Home';
 import Profile from './views/Profile/Profile';
+import Admin from './views/Admin/Admin';
 import Sesion from './views/Sesion/Sesion';
 import Store from './views/Store/Store';
 
@@ -17,6 +18,7 @@ function App() {
               <Route path="/tienda" exact component={Store}/> 
               <Route path="/profile" exact component={Profile}/> 
               <Route path="/carrito" exact component={Cart}/>
+              <Route path="/admin" exact component={Admin}/>
               
          </Switch>
       </BrowserRouter>
