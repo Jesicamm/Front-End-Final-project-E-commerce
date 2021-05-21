@@ -43,6 +43,7 @@ const Header = (props) => {
         setTimeout(()=> {
             props.dispatch({ type: LOGOUT, payload : {}});
         },500);
+        history.push('/')
     }
 
     return (
