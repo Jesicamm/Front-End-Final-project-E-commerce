@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
 import './Store.css';
-import { useHistory } from 'react-router-dom';
+
 import axios from 'axios';
 import { connect } from 'react-redux';
 

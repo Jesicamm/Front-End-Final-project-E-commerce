@@ -1,0 +1,27 @@
+.admin-container{
+    margin-top:40px;
+    display: flex;
+    align-self: center;
+    justify-content: space-around;
+    width: 600px;
+    border-radius: 10px;
+    background-color: #E9E7E1 ;
+}
+
+.admins-container{
+
+    margin-top: 60px;
+    display: flex;
+    width: 100%;
+    flex-direction:column;
+}
+
+.admin{
+    display: flex;
+    margin: 10px 0 10px 0;
+    align-items:center;
+}
+.admin-title{
+    display: flex;
+    align-self: center;
+}

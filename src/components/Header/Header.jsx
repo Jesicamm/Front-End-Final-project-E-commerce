@@ -22,17 +22,6 @@ const Header = (props) => {
     const bringMeToCart = () => {
         history.push('/carrito')
     }
-/*     useEffect(()=>{
-        setTotalProducts(JSON.parse(localStorage.getItem("productCart")).length)
-        window.onstorage = function(e) {
-            console.log('The ' + e.key +
-              ' key has been changed from ' + e.oldValue +
-              ' to ' + e.newValue + '.');
-
-          }; 
-         
-    }) */
-    
 
     const getName = (name) => {
         

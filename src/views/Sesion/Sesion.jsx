@@ -29,13 +29,6 @@ const Sesion = (props) => {
 
         setLoginMessage('');
 
-        /* let notValidated = checkError(credentials)
-        setLoginMessage(notValidated);
-
-        if (notValidated) {
-            return;
-        }; */
-
         let credentialsData = {
             email: credentials.email,
             password: credentials.password,
